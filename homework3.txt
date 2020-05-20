@@ -1,0 +1,34 @@
+Chris McGinness 
+Homework 3 
+05/13/2020 
+
+1. Log entry from your prod host showing that you have logged in using your Certificates. 
+	ANSWER: Using sudo cat /var/log/secure | grep publickey I got this result as proof of my logging in via certificate (I didn’t want to dig through all those failed logins haha) 
+
+	May 11 22:04:42 ulc-161 sshd[14092]: Accepted publickey for chrismcg from 73.109.74.119 port 38086 ssh2: RSA SHA256:H5fjKovLArAPtEPmepAzA+HyH+4wtnK2n2FgMbKb2as 
+
+2. Copy of the line entry in /etc/passwd for pcoop
+	ANSWER: pcoop:x:1004:1004:Phil Cooper Assistant:/home/pcoop:/bin/bash 
+
+3. The absolute path to the pcoop public key on your production server. 
+	ANSWER: /home/pcoop/.ssh/authorized_keys
+3a. Include the file permission details for the /home/pcoop, /home/pcoop/.ssh and /home/pcoop/.ssh/authorized_keys 
+	ANSWER /home/pcoop: drwx------.  3 pcoop     pcoop      90 May 12 23:41 pcoop
+	ANSWER home/pcoop/.ssh: drwxr-xr-x. 2 root  pcoop  29 May 12 23:42 .ssh 
+	ANSWER /home/pcoop/.ssh/authorized_keys: -rwxr-xr-x. 1 root  pcoop 416 May 12 23:42 authorized_keys
+
+4. The absolute path to the README.txt file on your host and the permissions for this file. 
+	ANSWER: /usr/share/itfdn-docs/README.txt 
+	ANSWER: drwxr-xr-x.  2 root staff   24 May 13 00:29
+
+5. Reading Questions
+5a.What is a umask, and what is your umask setting for your dev and prod host?
+	ANSWER: The umask command controls the default permission given to a file when it is created and is viewed in an octal format. This can be useful if we would like to alter any sort of file permissions for new file creations. If you want to make a file that has rw r r permissions, you would set umask to 0022 and files created after that would have those permissions.   
+
+5b. What problem does SSH solve for linux and Unix users"? 
+	ANSWER: The older programs used to remotely login, like ftp or telnet, transmitted all their communications in cleartext, which is a massive security risk. SSH solves that problem by authenticating the remote host is who they say they are and encrypts all communication between the local and remote host.  
+
+5c. What command and options can you use to permission a file such that only the owner can READ the file. This means no one else on the system will have any access to the file without sudo or root access. 
+	ANSWER1: After the file is created: chmod 400 <file.txt> 
+	ANSWER2: Before the file is created: umask 0400   
+		 > file.txt
