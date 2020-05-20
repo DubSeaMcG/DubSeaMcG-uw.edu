@@ -1,0 +1,60 @@
+Chris McGinness 
+Homework 4 
+5/20/2020 
+
+1. Log entry from /var/log/secure showing the that you copied the class linux book (pdf) to your production server. 
+	ANSWER (using grep publickey to filter): May 19 00:36:48 ulc-161 sshd[12723]: Accepted publickey for chrismcg from 73.109.74.119 port 49758 ssh2: RSA SHA256:H5fjKovLArAPtEPmepAzA+HyH+4wtnK2n2FgMbKb2as 
+
+2. The default gateway address for your prod server
+	ANSWER: default via 140.142.159.100
+
+3. The driver details for your prod server 
+	ANSWER BELOW (Using command ethtool -I ens192)
+	driver: vmxnet3 
+	version: 1.4.7.0-k-NAPI 
+	firmware-version:  
+	expansion-rom-version:  
+	bus-info: 0000:0b:00.0 
+	supports-statistics: yes 
+	supports-test: no 
+	supports-eeprom-access: no 
+	supports-register-dump: yes 
+	supports-priv-flags: no 
+	
+4. Does your production server have a static or DHCP provided IP address and how did you confirm this? 
+	ANSWER: Production server has a static IP address
+	Using sudo cat /etc/sysconfig/network-scripts/ifcfg-ens192, I discovered BOOTPROTO is listed as “static” and then there are two separate DNS IP address that are in use (DNS2 and DNS1) 
+
+5. Git log showing that you added a template script to your project 
+	ANSWER BELOW
+	[chrismcg@ulc-161 itfdn-140-scripts]$ git log 
+	commit 896324da1d51577c870d86c28277cb2736065599 
+	Author: Chris McGinness <chrismcg@ulc-161.ulcert.uw.edu> 
+	Date:   Mon May 18 22:48:58 2020 -0700 
+
+    		add template script 
+
+  	commit 147ec4c0ac040bd364d74e2d265088ce0488cbe6 
+	Author: Christopher McGinness <tophermcg@gmail.com> 
+	Date:   Tue May 19 05:34:54 2020 +0000 
+
+    		Initial commit 
+
+6. Answer the reading questions
+
+6.1 According to the author where should you place scripts intended for everyone on your system vs scripts for your personal use? 
+	ANSWER: Per the author, you should store scripts in ~/bin for personal use and in /usr/local/bin for everyone on the system to use.
+6.2 What features of Vim may help you with script writing?
+	ANSWER: First and foremost, understanding VIM keystrokes will be wildly beneficial. To answer this question though, the ":syntax on" and ":set hlsearch" seem key to me (or atleast at this early stage of my learning). Being able to see the different elements of the sytax so clearly is great, plus the "hlsearch" will help you find specific commands or variables via quick search. 
+6.3 How can you remove a file from your git repository? 
+	ANSWER: Use the command "$ Git rm" - This will remove the file from the staging area and commit, as well as remove it from the working directory.
+6.4 How can you view details about your remote git repositories? 
+	ANSWER: the "$ git remote" command is the key. There are a number of subcommands that are useful as well, such as "$ git remote show origin" or "$ git remote rename".
+
+
+STRETCH ASSIGNTMENT 1: Stretch assignment: What in the output from ip addr show indicates that you have a DCHP or Static IP address.
+	ANSWER: I don’t know if this is fully the correct answer, but I know that there should be the word “dynamic” in the “inet line (listed below). Because “dynamic” does not appear, I can only assume it’s static.
+
+
+STRETCH ASSIGNMENT 2: Stretch assignment: Your script with a find command solution and a git log entry showing it added to your git repo. 
+	ANSWER: 
