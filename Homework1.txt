@@ -1,0 +1,26 @@
+Chris McGinness
+Homework 1
+04/27/2020
+
+1. Answers to the reading questions:
+
+	A. What is an Absolute vs a Relative pathname?	An Absolute pathname begins with the root directory and follows the branches to the desired directory/file, whereas a Relative pathname starts from the working directory and is relative to your current position within the file tree system.  
+
+	B. What can you do with the file command?	Print a brief description of a file’s contents and determine the file type.  
+
+	C. According to the author what type of programs are less and more?	They are “pagers.” Pagers allow for easy viewing of long text docs in a page by page manner.  
+
+2. Your prod system username:	chrismcg 
+
+3. The location of your sudo log file and name (absolute path):	var/log/secure 
+
+4. The location to the messages log and a brief description of the type of content it contains:	var/log/messages (needed sudo to gain access to view via "less"). It consists mostly of creating, starting, stopping, and removing user slice of root. Also includes "audit daemon rotating log files" and a few "imjournal: journal reloaded..." messages as well. 
+
+5. Confirm that you posted an introduction in the Canvas discussion forum:	I have posted in the discussion forum (would love to talk Linux Distros and Westworld!) plus added my pic and LinkedIn profile.  
+
+
+Stretch Objective:	I was able to lock the password of user itfdn140, thus disabling the user via “$ sudo usermod –L itfdn140.” It appears that it locked the account, and it also seems like I’ll be able to unlock with the option –U, so this made the most logical sense to me.  
+
+
+
+
