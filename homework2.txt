@@ -1,0 +1,75 @@
+Chris McGinness 
+Homework 2 
+5/6/2020 
+
+1. Answers to the reading questions. 
+	1. What is tee used for? provide an example use case. 
+		Answer: Tee is used to send a standard input to both a standard output (ie your monitor) and a file. 
+		A possible example would be creating something like cat /var/logs/messages | grep dhclient | tee messages_logs.txt. This would allow you to see all system 			message logs associated to dhcp changes in the moment but also creat a file (messages_logs.txt) that stores the data for a later reference.  
+	2. What does the command which tell you? 
+		Answer: The which command tells you the exact location of an executable. This is useful if you have more than one version of an executable on your system. 
+	3. How can you use the tilde ~ symbol in Linux? 
+		Answer: We can use ~ at the beginning of a word to get the name of the home directory of the current or named user. This could be useful (potentially?) if 			you are looking for the home directory a different user. 
+	4. What is one thing you learned about Vim in chapter 12? 
+		Answer: I thought the ability to use add multiple files to the current editing session opens up a lot of doors (ie vi file1 file2 file 3). Specifically, 			using the :buffer <#> command to identify which file you want, then using yank, yy command, to copy text. Then using :bn to switchs files and p to paste 			data to the second document.  
+
+2. What are the four Vi commands used to open a file for editing before a character, after a character, above a line or below a line.  
+	Answer: Before a character = i 
+		After a character = a 
+		Above a line = O (uppercase “O”) 
+		Below a line = o (lowercase “o”) 
+
+3. Your vimtutor file name and absolute path. 
+	Answer: Filename: vimtutor1.txt    
+		Absolute path: /home/chrismcg/vimtutor1.txt 
+
+4. The command used to find how many users have "/var/adm" defined as the home directory and answer.  
+	Answer: cut -d: -f1,6 /etc/passwd | sort | uniq –f1   (kept column 1 to see user still and didn’t end up needing the sort as there was only 1 result.)
+
+5. The command used to find the total number of invalid user errors and the answer. 
+	Answer: Sudo cat /var/log/secure | grep ‘Invalid user’ | wc –l    (20088 as of this morning!) 
+
+6. The command used to find all the failed usernames that have attempted to login to your prod system and answer (you can truncate this list if you want). 
+	Answer: Sudo cat /var/log/secure | grep 'Invalid user' | cut -d' ' -f9 | uniq -c -u
+ 	(truncated results - just the first 40)
+      2 dev
+      2 admin
+      2 postgres
+      2 dle
+      2 user
+      2 admin
+      2 dpd
+      2 system
+      2 tool
+      2 admin
+      2 killer
+      2 ts3
+      2 admin
+      2 mi
+      2 user
+      2 guest
+      2 Cisco
+      2 Admin
+      2 admin
+      3 admin
+      3 ADMINISTRATOR
+      2 HOME
+      3 Administrator
+      2 Administrator
+      2 Administrator
+      2 Administrator
+      2 dick
+      2 pi
+      2 test
+      2 z
+      2 ubuntu
+      2 admin
+      2 admin
+      2 u1
+      2 postgres
+      2 admin
+      2 hadoop
+      2 admin
+      2 test
+      2 ftpuser
+      2 angela
