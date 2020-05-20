@@ -32,3 +32,6 @@ Homework 3
 	ANSWER1: After the file is created: chmod 400 <file.txt> 
 	ANSWER2: Before the file is created: umask 0400   
 		 > file.txt
+
+Adjusting name as test
+
