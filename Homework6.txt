@@ -1,0 +1,57 @@
+Chris McGinness
+Homework 6
+06/03/2020
+
+READING QUESTIONS
+1. How can you be sure to copy ACLs with your files?
+	ANSWER: Run it from root - Sudo into the setfacl and set the default ACL for the folder. I could be wrong here, but that is what makes the most sense and nothing else is really jumping out.
+2. What does the command firewall-cmd --query-panic do or answer for the administrator?
+	ANSWER: firewall-cmd --panic-on disables all network traffic in case of an attack. firewall-cmd --panic-off turns reverts the firewall to it's permanent settings. the firewall-cmd --query-panic lets the user know if the firewall is set to "panic" or not. It shuts the system down. 
+3. What utility does systemctl replace in regards to managing services in Linux?
+	ANSWER: systemctl replaces service and chkconfig in Linux.
+
+TASK ANSWERS
+1. The url to your new server on port 8080
+	ANSWER: http://ulc-161.ulcert.uw.edu:8080
+
+2. Output from firewall-cmd showing both tcp and upd 8080 ports enabled.
+	ANSWER:
+	public (active)
+  	target: default
+ 	icmp-block-inversion: no
+  	interfaces: ens192
+  	sources: 
+  	services: ssh dhcpv6-client http
+  	ports: 8080/tcp 8080/udp
+  	protocols: 
+  	masquerade: no
+  	forward-ports: 
+  	source-ports: 
+  	icmp-blocks: 
+  	rich rules: 
+
+3. Output from getfacl showing your permissions for one of the nginx logs.
+	ANSWER:
+	[chrismcg@ulc-161 ~]$ sudo getfacl /var/log/nginx/error-8080.log
+	getfacl: Removing leading '/' from absolute path names
+	# file: var/log/nginx/error-8080.log
+	# owner: root
+	# group: root
+	user::rw-
+	user:chrismcg:r--
+	group::r--
+	mask::r--
+	other::r--
+
+4. Does sestatus show a configured status and a current status for SELinux and if so how?
+	ANSWER: It does show a configured status. I would guess that it due to the fact that is built into the kernel and is a process that doesn't require the full file location to run (as a program).
+
+5. A git log showing the addition of the store and recall scripts.
+	ANSWER:
+	[chrismcg@ulc-161 itfdn-140-scripts]$ git log
+	commit 		
+560a81bfe18287fdf1b7a342d608418fdc736320                                                                         Author: chris <tophermcg@gmail.com>                                                                                     Date:   Mon Jun 8 18:40:52 2020 -0700                                                                                                                                                                                                               Update to get script working and move store.sh and recall.sh to right location.                                                                                                                                                             commit 3af825783653cf6a5f3fe6b6e7ea2f62ff5c49ce                                                                         Author: chris <tophermcg@gmail.com>                                                                                     Date:   Mon Jun 8 17:06:33 2020 -0700                                                                                                                                                                                                               update with errors.                  
+
+STRETCH ASSIGNMENT
+1. The facl command you used to set default file permissions for the nginx folder.
+	ANSWER: sudo setfacl -m d:u:${USER}:r /var/log/nginx/
