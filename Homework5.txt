@@ -1,0 +1,78 @@
+Chris McGinness 
+Homework #5 
+05/27/20 
+
+1. Answer the Reading questions (Chapters 16,17,19)
+1a. What does wget do? 
+	Answer: wget is used to download files from both web and FTP sites. It can recursively download, download partial downloaded files, and download in the background. Pretty sweet!
+
+1b. Why is FTP considered insecure? 
+	Answer: t’s considered insecure because it sends account names and passwords in cleartext. To continue using FTP, you can use an anonymous FTP server which allows us to sign in with the anonymous name and meaningless password. I would imagine most people use SFTP or some other more secure transfer protocol these days though. 
+
+1c. What are two common tools for finding files on your system? 
+	Answer: Locate (find files by name) and find (search for files in a directory hierarchy). Find is very powerful and I feel like I need to do more exploring there. Locate is way faster than find.
+
+1d. What are regular expressions according to the author?  
+	Answer: hey are symbolic notations used to identify patterns in text. (I was going to come up with my own way of saying this, but the author seems pretty spot on here.) 
+
+2. Copy of your security script output when a user passes in the argument -h 
+	Answer Below:
+	./security_check.sh: line 40: unexpected EOF while looking for matching `"' 
+	./security_check.sh: line 41: syntax error: unexpected end of file 
+	I read back through the script and saw that a “ was missing in the echo "usage: $0 [ -h ] line. I reran it and got this output: usage: ./security_check.sh [ -h ] 
+
+3. The names of two name servers and two mail servers for uw.edu and f5.com.
+	UW.edu
+		NS: marge.cac.washington.edu. & holly.s.uw.edu.
+		MX: 100 mxe32.s.uw.edu. & 100 mxe24.s.uw.edu. 
+	F5.com
+		NS: pdns150.f5.com. & pdns151.f5.com. 
+		MX: 0 mail15.f5.com. & 10 mail13.f5.com.
+
+4. Which host uw.edu or yahoo.com seems to only use private ip addresses and why might that be the case?
+	Answer: w.edu appears to use only private ip addresses. I would guess that UW was provided with a Class A ip address long before Yahoo was given access. I'm a little stumped by this one!
+
+5. List the IP address, subnet mask and default gateway for your production server. 
+	IP Address: 140.142.159.161 
+	Subnet Mask: 255.255.255.0 
+	Default Gateway: 140.142.159.100
+
+6. When using ss on your production system is the peer address for your ssh connection and the output from ifconfig.io the same? if why do you think this is the case? 
+	Answer: They are differenet numbers. I believe that is due to the NAT changing the IP address once it leaves the local network.  
+
+7. Link to your production server http server. 
+	Link: http://ulc-161.ulcert.uw.edu/ 
+
+STRETCH1: copy of the code for your additional feature in the security_check script and the purpose. 
+	Answer: haven’t gotten here yet, but want to still work on scripting!!
+
+STRETCH2: Note that you personalized your Web Server. 
+	Answer: I included my favorite subreddit with this added line:  
+	<p> Check out my favorite <a href="https://www.reddit.com/r/Watchexchange/" title="WatchExchange SubReddit page" target="_blank">subreddit</a>.</p> 
+
+STRETCH3: List of 6 character words that end in dor found in the words database.
+	Answer: grep '^...dor$' /usr/share/dict/words
+	Amador 
+	Bandor 
+	Candor 
+	candor 
+	chador 
+	condor 
+	Feodor 
+	fiador 
+	Fyodor 
+	Isador 
+	Isidor 
+	Landor 
+	Meador 
+	Nandor 
+	Sandor 
+	seldor 
+	sordor 
+	Teador 
+	Teodor 
+	Tuddor 
+	vendor 
+	weldor 
+
+
